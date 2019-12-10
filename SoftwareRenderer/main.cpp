@@ -244,7 +244,10 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPiv, LPSTR args, int someshit)
 
 
 		// Calculat the matrixes
-		Vec3f light_dir = Vec3f(1, 2, 4).normalize();
+		//Vec3f light_dir = Vec3f(1, 2, 4).normalize();
+		static float a = 0;
+		a += 0.0005f;
+		Vec3f light_dir = Vec3f(cosf(a * PI / 100), 2, 4 + cosf(a * PI / 100)).normalize();
 
 		camera.direction();
 		camera.basis();
