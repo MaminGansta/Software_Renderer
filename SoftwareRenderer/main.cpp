@@ -266,33 +266,10 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPiv, LPSTR args, int someshit)
 
 		Matrix44f transformation = ViewPort * Projection * ModelView;
 		GouraudShader shader;
+		
 		// draw model
 		for (auto face : model.faces_)
 		{
-			/*
-			std::vector<int> face = model.face(i);
-			Vec3f screen_coords[3];
-			Vec3f world_coords[3];
-			for (int j = 0; j < 3; j++)
-			{
-				Vec3f v = model.vert(face[j]);
-				screen_coords[j] = (ViewPort * Projection * ModelView * Matrix44f(v)).toVec3();
-				world_coords[j] = v;
-			}
-			Vec3f n;
-			cproduct((world_coords[2] - world_coords[0]), (world_coords[1] - world_coords[0]), &n);
-			n.normalizeYourself();
-			float intensity = dproduct(n, light_dir);
-
-			intensity = intensity < 0 ? 0.1 : intensity;
-
-			Vec2i uv[3];
-			for (int k = 0; k < 3; k++)
-				uv[k] = model.uv(i, k);
-
-			triangle(screen_coords, uv, zbuffer, model, intensity);
-			*/
-
 			Vec3f screen_coords[3];
 			shader.vertex(face, transformation, model, light_dir, screen_coords);
 

@@ -84,9 +84,9 @@ inline void draw_filled_rect(int x0, int y0, int x1, int y1, Color color)
 void triangle(Vec3f* pts, Vec2i* uv, float* zbuffer, Model& model, IShader* shader)
 {
 	if (pts[0].y == pts[1].y && pts[0].y == pts[2].y) return; // i don't care about degenerate triangles
-	if (pts[0].y > pts[1].y) { std::swap(pts[0], pts[1]); std::swap(uv[0], uv[1]); }
-	if (pts[0].y > pts[2].y) { std::swap(pts[0], pts[2]); std::swap(uv[0], uv[2]); }
-	if (pts[1].y > pts[2].y) { std::swap(pts[1], pts[2]); std::swap(uv[1], uv[2]); }
+	//if (pts[0].y > pts[1].y) { std::swap(pts[0], pts[1]); std::swap(uv[0], uv[1]);}
+	//if (pts[0].y > pts[2].y) { std::swap(pts[0], pts[2]); std::swap(uv[0], uv[2]);}
+	//if (pts[1].y > pts[2].y) { std::swap(pts[1], pts[2]); std::swap(uv[1], uv[2]);}
 
 	Vert2f bot_left(std::numeric_limits<float>::max(), std::numeric_limits<float>::max());
 	Vert2f top_right(std::numeric_limits<float>::min(), std::numeric_limits<float>::min());
