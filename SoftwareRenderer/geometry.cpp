@@ -112,7 +112,7 @@ struct Vec3
 		return std::sqrt(a + b + c); 
 	}
 
-	inline Vec3<T>& normalize()
+	inline Vec3<T> normalize()
 	{
 		Vec3<T> temp = (*this) * (1.0f / norm());
 		return temp;
